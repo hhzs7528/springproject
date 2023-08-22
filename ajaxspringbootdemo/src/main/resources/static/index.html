@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+<form id="reg-form" action="#" method="get">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td>
+                <input name="username" type="text" id="username">
+                <br>
+                <span id="username_err" style="display: none">用户名太受欢迎了</span>
+            </td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td>
+                <input name="password" type="password" id="password">
+                <br>
+                <span id="password_err" style="display: none">密码格式有误</span>
+            </td>
+        </tr>
+    </table>
+    <input value="注  册" type="submit" id="reg_btn">
+</form>
+<script>
+
+    document.getElementById("username").onblur = function () {
+        // 创建 XMLHttpRequest 对象
+        var xhttp;
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        } else {
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+
+        // 发送请求
+        xhttp.open("GET", "http://localhost:8080/ajax");
+        xhttp.send();
+
+        // 获取响应
+        xhttp.onreadystatechange = function() {
+            document.getElementById("username_err").style.display = "";
+        };
+    }
+
+</script>
+</body>
+</html>

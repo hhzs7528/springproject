@@ -1,0 +1,6 @@
+# 项目排除路径
+/ajaxspringbootdemo/target/
+/aopdemo/target/
+/demo/target/
+/springbootssm/target/
+/springssm/target/
